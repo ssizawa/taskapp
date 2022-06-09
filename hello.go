@@ -1,23 +1,19 @@
 package main
 
-import "fmt"
+import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
 
-	fmt.Printf("Hello World\n")
-
-	a := 0
-	b := "hello"
-	fmt.Printf("%d", a)
-
-	fmt.Print(a, a, a)
-	fmt.Print(b)
-
-	for i := 0; i < 5; i++ {
-		fmt.Print(i)
-		if i == 3 {
-			break
-		}
-	}
+	engine := gin.Default()
+	engine.GET("/", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"message": "hello world",
+		})
+	})
+	engine.Run(":3000")
 
 }
