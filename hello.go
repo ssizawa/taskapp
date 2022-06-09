@@ -8,12 +8,18 @@ import (
 
 func main() {
 
+	//Ginの変数
 	engine := gin.Default()
+
+	//htmlファイルのディレクトリをロード
+	engine.LoadHTMLGlob("templates/*")
+
+	//GET
 	engine.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "hello world",
-		})
+		c.HTML(http.StatusOK, "index.html", gin.H{})
 	})
+
+	//ポートを指定して実行
 	engine.Run(":3000")
 
 }
