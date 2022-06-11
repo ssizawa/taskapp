@@ -9,17 +9,18 @@ import (
 func main() {
 
 	//Ginの変数
-	engine := gin.Default()
+	router := gin.Default()
 
 	//htmlファイルのディレクトリをロード
-	engine.LoadHTMLGlob("templates/*")
+	router.Static("/assets", "./assets")
+	router.LoadHTMLGlob("templates/*")
 
 	//GET
-	engine.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", gin.H{})
+	router.GET("/", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "login.html", gin.H{})
 	})
 
 	//ポートを指定して実行
-	engine.Run(":3000")
+	router.Run(":3000")
 
 }
