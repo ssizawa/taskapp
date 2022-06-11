@@ -11,9 +11,9 @@ func main() {
 	//Ginの変数
 	router := gin.Default()
 
-	//htmlファイルのディレクトリをロード
-	router.Static("/assets", "./assets")
+	//html/css/jsファイルのディレクトリをロード
 	router.LoadHTMLGlob("templates/*")
+	router.Static("/assets", "./assets")
 
 	//GET
 	router.GET("/", func(c *gin.Context) {
