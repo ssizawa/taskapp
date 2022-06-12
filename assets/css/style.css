@@ -1,0 +1,31 @@
+body{
+    font-style: normal;
+    font-family: 'Inter';
+}
+header, footer{
+    background-color: #868481;
+}
+header{
+    height: 64px;
+}
+header p{
+    padding-top: 14px;
+    padding-right: 10px;
+    text-align: right;
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    height: 32px;
+    width: 100%;
+}
+footer p{
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+}
