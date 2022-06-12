@@ -12,7 +12,7 @@ h1{
     color: #FFFFFF;
     /**/
 }
-.label-name{
+.form-label{
     display: block;
     margin-top: 45px;
     font-family: 'Inter';
@@ -23,7 +23,7 @@ h1{
     text-align: center;
     color: #FFFDFD;
 }
-.input-name{
+.form-control{
     display: block;
     width: 315px;
     height: 45px;
@@ -57,8 +57,6 @@ h1{
     text-align: center;
 }
 .btn{
-    margin-top:45px;
-    margin-bottom:150px;
     width: 115px;
     height: 58px;
     background: #EDAA28;
@@ -66,4 +64,8 @@ h1{
     font-size: 24px;
     border: none;
     color: #FFFFFF;
+}
+#login{
+    text-align: center;
+    margin-top: 30px;
 }
