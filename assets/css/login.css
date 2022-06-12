@@ -10,9 +10,8 @@ h1{
     line-height: 77px;
     text-align: center;
     color: #FFFFFF;
-    /**/
 }
-.form-label{
+#nlabel{
     display: block;
     margin-top: 45px;
     font-family: 'Inter';
@@ -23,7 +22,7 @@ h1{
     text-align: center;
     color: #FFFDFD;
 }
-.form-control{
+#name{
     display: block;
     width: 315px;
     height: 45px;
@@ -31,10 +30,9 @@ h1{
     border-radius: 10px;
     margin: auto;
     font-size: 24px;
-    border: none;
     text-align: center;
 }
-.label-pass{
+#passlabel{
     display: block;
     margin-top: 25px;
     font-family: 'Inter';
@@ -45,7 +43,7 @@ h1{
     text-align: center;
     color: #FFFDFD;
 }
-.input-pass{
+#password{
     display: block;
     width: 315px;
     height: 45px;
@@ -53,10 +51,11 @@ h1{
     border-radius: 10px;
     margin: auto;
     font-size: 24px;
-    border: none;
     text-align: center;
 }
-.btn{
+#login{
+    text-align: center;
+    margin-top: 30px;
     width: 115px;
     height: 58px;
     background: #EDAA28;
@@ -65,7 +64,6 @@ h1{
     border: none;
     color: #FFFFFF;
 }
-#login{
+.botton{
     text-align: center;
-    margin-top: 30px;
 }
