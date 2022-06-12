@@ -1,13 +1,66 @@
 body{
-    background-color: gray;
+    background: #868481;
 }
 h1{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 64px;
-    margin-top: 303px;
+    margin-top: 150px;
     line-height: 77px;
     text-align: center;
+    color: #FFFFFF;
+}
+.label-name{
+    display: block;
+    margin-top: 45px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #FFFDFD;
+}
+.input-name{
+    display: block;
+    width: 315px;
+    height: 45px;
+    background: #FFFCFC;
+    border-radius: 10px;
+    margin: auto;
+    font-size: 24px;
+    border: none;
+}
+.label-pass{
+    display: block;
+    margin-top: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #FFFDFD;
+}
+.input-pass{
+    display: block;
+    width: 315px;
+    height: 45px;
+    background: #FFFCFC;
+    border-radius: 10px;
+    margin: auto;
+    font-size: 24px;
+    border: none;
+}
+.btn{
+    margin-top:45px;
+    margin-bottom:150px;
+    width: 115px;
+    height: 58px;
+    background: #EDAA28;
+    border-radius: 30px;
+    font-size: 24px;
+    border: none;
     color: #FFFFFF;
 }
