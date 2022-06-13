@@ -1,3 +1,2 @@
 # git管理が必要ないものを記載
 db/*
-assets/node_modules/*
