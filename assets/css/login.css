@@ -1,9 +1,9 @@
 body{
     background: #868481;
-}
-h1{
     font-family: 'Inter';
     font-style: normal;
+}
+h1{
     font-weight: 400;
     font-size: 64px;
     margin-top: 150px;
@@ -14,8 +14,6 @@ h1{
 #nlabel{
     display: block;
     margin-top: 45px;
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 29px;
@@ -35,8 +33,6 @@ h1{
 #passlabel{
     display: block;
     margin-top: 25px;
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 29px;
@@ -66,4 +62,8 @@ h1{
 }
 .botton{
     text-align: center;
+}
+a{
+    margin: 0 auto;
+    color: #EDAA28;
 }
