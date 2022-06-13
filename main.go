@@ -1,8 +1,10 @@
 package main
 
 import (
+	//HTTPクライアントとサーバーの実装
 	"net/http"
 
+	//Ginの実装
 	"github.com/gin-gonic/gin"
 )
 
@@ -22,5 +24,4 @@ func main() {
 
 	//ポートを指定して実行
 	router.Run(":3000")
-
 }
