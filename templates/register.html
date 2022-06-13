@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/login.css">
-    <title>Login</title>
+    <title>Sign up</title>
 </head>
 <body>
     <header>
         <h1>TaskApp</h1>
     </header>
-    <form action="/TaskApp" method="POST">
+    <form action="/add_user" method="POST">
         <div class="form-group has-warning">
             <label class="form-label" id="nlabel" for="name">Name</label>
             <input type="text" id="name" class="form-control" name="name">
@@ -21,9 +21,8 @@
             <input type="password" class="form-control" id="password">
         </div>
         <div class="botton">
-            <input type="submit" value="login" class="btn btn-warning" id="login">
+            <input type="submit" value="Sign up" class="btn btn-warning" id="login">
         </div>
     </form>
-    <a href="/register">Sign up</a>
 </body>
 </html>
