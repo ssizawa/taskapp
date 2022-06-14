@@ -7,9 +7,12 @@ import (
 
 	//Ginの実装
 	"github.com/gin-gonic/gin"
+
+	"github.com/ssizawa/taskapp/src/repository"
 )
 
 func main() {
+	repository.Create_table()
 
 	//Ginの変数
 	router := gin.Default()
@@ -17,8 +20,6 @@ func main() {
 	//html/css/jsファイルのディレクトリをロード
 	router.LoadHTMLGlob("templates/*")
 	router.Static("/assets", "./assets")
-
-	repository.create_table()
 
 	//GET
 	router.GET("/", func(c *gin.Context) {
