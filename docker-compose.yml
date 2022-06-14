@@ -10,8 +10,25 @@ services:
       MYSQL_PASSWORD: kanban
       TZ: 'Asia/Tokyo'
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    tty: true
+    stdin_open: true
     volumes:
       - ./db/data:/var/lib/mysql
       - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
     ports:
       - 3307:3307
+
+  golang:
+    container_name: go
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/src
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
