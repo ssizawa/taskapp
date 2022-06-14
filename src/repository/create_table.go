@@ -6,7 +6,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-func create_table() {
+func Create_table() {
 	db, err := sql.Open("mysql", "root:@/")
 	if err != nil {
 		panic(err.Error())
