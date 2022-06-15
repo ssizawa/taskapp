@@ -7,7 +7,7 @@ import (
 	//Ginの実装
 	//"github.com/gin-gonic/gin"
 
-	"github.com/ssizawa/taskapp/src/repository"
+	"github.com/ssizawa/taskapp/server/src/repository"
 )
 
 func main() {
