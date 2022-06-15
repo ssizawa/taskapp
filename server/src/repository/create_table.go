@@ -10,12 +10,14 @@ import (
 func Create_table() {
 	db, err := sql.Open("mysql", "roor:root@tcp(127.0.0.1:3306)/taskapp")
 	if err != nil {
+		fmt.Print("========1========")
 		panic(err.Error())
 	}
 	defer db.Close()
 
 	rows, err := db.Query("SELECT * FROM User")
 	if err != nil {
+		fmt.Print("========2========")
 		panic(err.Error())
 	}
 	fmt.Print(rows)
