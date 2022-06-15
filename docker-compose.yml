@@ -15,8 +15,9 @@ services:
     volumes:
       - ./db/data:/var/lib/mysql
       - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./db/sqls:/docker-entrypoint-initdb.d
     ports:
-      - 3307:3307
+      - 3306:3306
 
   golang:
     container_name: go
@@ -27,7 +28,10 @@ services:
     tty: true
     stdin_open: true
     volumes:
-      - .:/src
+      - type: bind
+        source: ./server/src
+        target: /src
+      - ./server/init:/init
     ports:
       - 8080:8080
     depends_on:
