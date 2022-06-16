@@ -1,0 +1,94 @@
+body{
+    background: #868481;
+    font-family: 'Inter';
+    font-style: normal;
+}
+h1{
+    font-weight: 400;
+    font-size: 64px;
+    margin-top: 150px;
+    line-height: 77px;
+    text-align: center;
+    color: #FFFFFF;
+}
+#nlabel{
+    display: block;
+    margin-top: 45px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #FFFDFD;
+}
+#name{
+    display: block;
+    width: 315px;
+    height: 45px;
+    background: #FFFCFC;
+    border-radius: 10px;
+    margin: auto;
+    font-size: 24px;
+    text-align: center;
+}
+#passlabel{
+    display: block;
+    margin-top: 25px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #FFFDFD;
+}
+#password{
+    display: block;
+    width: 315px;
+    height: 45px;
+    background: #FFFCFC;
+    border-radius: 10px;
+    margin: auto;
+    font-size: 24px;
+    text-align: center;
+}
+#login{
+    text-align: center;
+    margin-top: 30px;
+    width: 115px;
+    height: 58px;
+    background: #EDAA28;
+    border-radius: 30px;
+    font-size: 24px;
+    border: none;
+    color: #FFFFFF;
+}
+.botton{
+    text-align: center;
+}
+/* a{
+    display: inline-block;
+    transition: .3s;
+    position: relative;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 24px;
+}
+a:hover{
+    color: #FFFFFF;
+}
+a::after{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: #EDAA28;
+    transition: .3s;
+    transform: translateX(-50%);
+}
+a:hover::after{
+    width: 100%;
+}
+.tag{
+    text-align: center;
+    margin-top: 30px;
+} */
