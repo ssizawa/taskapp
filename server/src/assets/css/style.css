@@ -8,20 +8,18 @@ header, footer{
 header{
     height: 58px;
     width: 100%;
+    display: flex;
+    align-items: center;
 }
 #right{
-    position: relative;
-    left: 0;
     color: #EDAA28;
     font-size: 38px;
+    margin-left: 24px;
 }
 #user-box{
-    text-align: right;
-    margin-top: 6px;
-    margin-right: 10px;
+    margin: 0 40px 0 auto;
 }
 #user-box span{  
-    text-align: right;
     position: relative;
     bottom: 6px;
     color: white;
@@ -97,8 +95,10 @@ button{
     flex-flow: column;
     /* display: none; */
 }
-#right{
+#left{
     margin-left: 190px;
+    color: #EDAA28;
+    font-size: 38px;
 }
 .close-box, .side-item1, .side-item2, .side-item3{
     height: 58px;
