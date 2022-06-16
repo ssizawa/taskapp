@@ -11,10 +11,12 @@ header{
     display: flex;
     align-items: center;
 }
+#trigger-box{
+    margin-left: 20px;
+}
 #right{
     color: #EDAA28;
     font-size: 38px;
-    margin-left: 24px;
 }
 #user-box{
     margin: 0 40px 0 auto;
@@ -93,7 +95,7 @@ button{
     background-color: #5A5A5A;
     display: flex;
     flex-flow: column;
-    /* display: none; */
+    display: none;
 }
 #left{
     margin-left: 190px;
