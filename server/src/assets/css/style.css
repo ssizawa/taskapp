@@ -112,8 +112,6 @@ button{
     background-color: #EDAA28;
 }
 footer{
-    position: absolute;
-    bottom: 0;
     height: 30px;
     width: 100%;
 }
