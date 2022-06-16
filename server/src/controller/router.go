@@ -2,20 +2,37 @@ package controller
 
 import (
 	//HTTPクライアントとサーバーの実装
+	"net/http"
 
 	"github.com/gin-gonic/gin"
+
+	"github.com/ssizawa/taskapp/server/src/repository"
 )
 
-func Login(c *gin.Context) {
-	//GET
-	// router.GET("/", func(c *gin.Context) {
-	// 	c.HTML(http.StatusOK, "login.html", gin.H{})
-	// })
+func Router(router *gin.Engine) {
 
-	// router.POST("/TaskApp", func(c *gin.Context) {
+	router.GET("/", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "login.html", gin.H{
+			"judge": true,
+		})
+	})
 
-	// 	name := c.PostForm("name")
-	// 	password := c.PostForm("password")
+	router.POST("/login", func(c *gin.Context) {
+		name := c.PostForm("name")
+		password := c.PostForm("password")
 
-	// })
+		repository.Opendb()
+
+		if repository.VerifybyName(name, password) {
+			c.Redirect(http.StatusMovedPermanently, "/taskapp")
+		} else {
+			c.HTML(http.StatusOK, "login.html", gin.H{
+				"judge": false,
+			})
+		}
+	})
+
+	router.GET("/taskapp", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "index.html", gin.H{})
+	})
 }
