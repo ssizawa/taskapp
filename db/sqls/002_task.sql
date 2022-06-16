@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS Task(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    task_name VARCHAR(128) UNIQUE NOT NULL
+    --pic VARCHAR(32) NOT NULL
+    --FOREIGN KEY REFERENCES User(name)
+    -- deadline DATE,
+    -- status VARCHAR(16) NOT NULL DEFAULT 'todo'
+);
