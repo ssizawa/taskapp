@@ -22,7 +22,7 @@ services:
   golang:
     container_name: go
     build:
-      context: .
+      context: ./server
       dockerfile: Dockerfile
       target: dev
     tty: true
@@ -31,7 +31,6 @@ services:
       - type: bind
         source: ./server/src
         target: /src
-      - ./server/init:/init
     ports:
       - 8080:8080
     depends_on:
