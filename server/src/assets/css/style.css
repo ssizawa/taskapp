@@ -19,6 +19,7 @@ button{
     margin-left: 10px;
 }
 #trigger{
+    height: 58px;
     width: 50px;
     background-color: #868481;
 }
