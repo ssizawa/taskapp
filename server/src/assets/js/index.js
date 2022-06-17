@@ -29,6 +29,13 @@ $(function(){
   });
 });
 
+//Settings
+$(function(){
+  $('#side-item2').on('click', function(){
+    location.href='taskapp/settings';
+  });
+});
+
 //draggable
 $(function(){
   let task = '[id^=task-]';
