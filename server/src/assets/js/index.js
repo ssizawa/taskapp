@@ -1,5 +1,5 @@
+//sidemenu
 $(function(){
-
   var duration = 300;
   var $trriger = $('#trigger');
   var $sidemenu = $('#sidemenu');
