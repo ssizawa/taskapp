@@ -22,6 +22,13 @@ $(function(){
   });
 });
 
+//Home
+$(function(){
+  $('#side-item1').on('click', function(){
+    location.reload();
+  });
+});
+
 //draggable
 $(function(){
   let task = '[id^=task-]';
