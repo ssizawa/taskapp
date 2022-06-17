@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <script src="../assets/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../assets/node_modules/vue/dist/vue.global.js"></script>
+    <script src="../assets/node_modules/vuedraggable/dist/vuedraggable.umd.min.js"></script>
     <title>TaskApp</title>
 </head>
 <body>
@@ -19,7 +20,7 @@
             <i class="bi bi-person-fill" id="user"></i><span>konishi kyosuke</span>
         </div>
     </header>
-    <main>
+    <main> 
         <div id="button-box">
             <button type="button" id="new-button"><i class="bi bi-plus" id="plus"></i><span id="new">new</span></button>
         </div>
@@ -29,12 +30,13 @@
                 <p class="status2">Doing</p>
                 <p class="status3">Done</p>
             </div>
-            <div class="box">
-                <div class="box1">  
+            <div id="app" class="box">
+                 <div id="box1" class="tasktag">
+                    <draggable tag="ul" :options="{group:'TASKS'}">
+                        <li v-for="task, index in tasks1" :key="task.item">{{task.item}}</li>
+                    </draggable>
                 </div>
-                <div class="box2">  
-                </div>
-                <div class="box3">
+                 <div id="box2" class="tasktag">
                 </div>
             </div>
         </div>
@@ -51,5 +53,6 @@
         <p>Intelligent Systems Design Laboratory</p>
     </footer>
     <script src="../assets/js/index.js"></script>
+    <script src="../assets/js/draggable.js"></script>
 </body>
 </html>
