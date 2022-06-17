@@ -38,33 +38,8 @@ $(function(){
 
 //draggable
 $(function(){
-  let task = '[id^=task-]';
-  let box = '[id^=box]';
-
-  $(task).draggable({
-    snap: box,
-    snapMode: 'inner',
-    revert: 'invalid',
-    opacity: 0.8,
-    cursor: 'move'
-  });
-
-  $(box).droppable({
-    classes: {
-      "ui-droppable-active": "ui-state-active",
-      "ui-droppable-hover": "ui-state-hover"
-    },
-    drop: function(event, ui) {
-     var $obj = $(ui.draggable[0]);
-     $obj.offset($(this).offset());
-     return false;
-    }
-  });
-
-  $(function(){
-    $('.sortable').sortable();
-    $(task).draggable({
-      connectToSortable: '.sortable'
-    })
+  $('.droppable').sortable({
+    connectWith: '.droppable',
+    items: '[id^=task-]'
   });
 });

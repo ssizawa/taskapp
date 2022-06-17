@@ -111,7 +111,7 @@ button{
 }
 
 /*task*/
-li[id^="task-"]{
+div[id^="task-"]{
     border-radius: 15px;
     margin-bottom: 5px;
     padding: 5px;
@@ -120,12 +120,12 @@ li[id^="task-"]{
     font-size: 16px;
     cursor: grab;
 }
-.sortable{
+.droppable{
     display: flex;
     flex-flow: column;
-    list-style: none;
+    margin: 5px auto;
     width: 92%;
-    overflow: visible;
+    height: 100%;
 }
 
 /*sidemenu*/
