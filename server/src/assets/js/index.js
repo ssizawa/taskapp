@@ -36,3 +36,13 @@ $(function(){
     items: '[id^=task-]'
   });
 });
+
+//modal
+$(function(){
+  $('#new-button').on('click', function(){
+    $('#task-modal').modal('show');
+  });
+  $('#close-modal').on('click', function(){
+    $('#task-modal').modal('dispose');
+  });
+});
