@@ -33,6 +33,12 @@ func Router(router *gin.Engine) {
 	})
 
 	router.GET("/taskapp", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", gin.H{})
+
+		var user_list []string
+		user_list = repository.GetUserList()
+
+		c.HTML(http.StatusOK, "index.html", gin.H{
+			"user_list": user_list,
+		})
 	})
 }

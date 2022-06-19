@@ -1,3 +1,33 @@
+//new button
+$(function(){
+  $('#new-button').on('mouseover', function(){
+    $(this).css({
+      'background-color': '#e7a41c' 
+    });
+  });
+
+  $('#new-button').on('mouseout', function(){
+    $(this).css({
+      'background-color': '#EDAA28' 
+    });
+  });
+});
+
+//trigger
+$(function(){
+  $('#trigger').on('mouseover', function(){
+    $('#right').css({
+      'color': '#d19c32' 
+    });
+  });
+
+  $('#trigger').on('mouseout', function(){
+    $('#right').css({
+      'color': '#EDAA28' 
+    });
+  });
+});
+
 //sidemenu
 $(function(){
   let duration = 300;
@@ -22,6 +52,21 @@ $(function(){
   });
 });
 
+//close
+$(function(){
+  $('#trigger-close').on('mouseover', function(){
+    $('#left').css({
+      'color': '#d19c32' 
+    });
+  });
+
+  $('#trigger-close').on('mouseout', function(){
+    $('#left').css({
+      'color': '#EDAA28' 
+    });
+  });
+});
+
 //Home
 $(function(){
   $('#side-item1').on('click', function(){
@@ -39,10 +84,7 @@ $(function(){
 
 //modal
 $(function(){
-  $('#new-button').on('click', function(){
-    $('#task-modal').modal('show');
-  });
-  $('#close-modal').on('click', function(){
-    $('#task-modal').modal('dispose');
-  });
+  $('#taskModal').on('hidden.bs.modal', function(){
+    $(this).find('form').trigger('reset');
+  })
 });

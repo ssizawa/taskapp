@@ -2,6 +2,7 @@ package repository
 
 import (
 	"database/sql"
+	"log"
 
 	_ "github.com/go-sql-driver/mysql"
 
@@ -35,4 +36,27 @@ func VerifybyName(name string, password string) bool {
 	}
 
 	return true
+}
+
+func GetUserList() []string {
+	var user_list []string
+	var user structure.User
+
+	Opendb()
+	defer db.Close()
+
+	rows, err := db.Query("SELECT name FROM User")
+
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+
+	for rows.Next() {
+
+		rows.Scan(&user.Name)
+
+		user_list = append(user_list, user.Name)
+	}
+
+	return user_list
 }
