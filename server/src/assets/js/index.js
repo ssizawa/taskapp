@@ -74,6 +74,13 @@ $(function(){
   });
 });
 
+//Settings
+$(function(){
+  $('#side-item2').on('click', function(){
+    location.href='taskapp/settings';
+  });
+});
+
 //draggable
 $(function(){
   $('.droppable').sortable({
