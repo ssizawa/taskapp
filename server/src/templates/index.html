@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="../assets/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../assets/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../assets/node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
     <script src="../assets/js/index.js"></script>
-    <script src="../assets/js/draggable.js"></script>
     <title>TaskApp</title>
 </head>
 <body>
@@ -21,9 +21,44 @@
             <i class="bi bi-person-fill" id="user"></i><span>{{.name}}</span>
         </div>
     </header>
-    <main> 
+    <main>
+        <p>{{ .user_list }}</p>
         <div id="button-box">
-            <button type="button" id="new-button"><i class="bi bi-plus" id="plus"></i><span id="new">new</span></button>
+            <button type="button" id="new-button" data-bs-toggle="modal" data-bs-target="#taskModal"><i class="bi bi-plus" id="plus"></i><span id="new">new</span></button>
+        </div>
+        <div class="modal fade" id="taskModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="taskModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="taskModalLabel">Create a new task</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                              <label for="task_name" class="col-form-label">name<span class="required">*</span></label>
+                              <input type="text" class="form-control" id="task_name" required>
+                            </div>
+                            <div class="mb-3">
+                              <label for="task_description" class="col-form-label">description:</label>
+                              <textarea class="form-control" id="task_description"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="task_pic" class="col-form-label">person in charge<span class="required">*</span></label>
+                                <input type="text" class="form-control" id="task_pic" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="task_deadline" class="col-form-label">deadline<span class="required">*</span></label>
+                                <input type="date" class="form-control" id="task_deadline" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Create</button>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="container">
             <div class="status">

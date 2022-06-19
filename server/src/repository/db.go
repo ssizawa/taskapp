@@ -2,6 +2,7 @@ package repository
 
 import (
 	"database/sql"
+	"log"
 
 	_ "github.com/go-sql-driver/mysql"
 
@@ -21,7 +22,7 @@ func Opendb() {
 	db = db_name
 }
 
-func Verify(name string, password string) bool {
+func VerifybyName(name string, password string) bool {
 
 	var user structure.User
 
@@ -37,10 +38,25 @@ func Verify(name string, password string) bool {
 	return true
 }
 
-func ChangePass(name string, newpass string) {
+func GetUserList() []string {
+	var user_list []string
+	var user structure.User
 
 	Opendb()
 	defer db.Close()
 
-	_ = db.QueryRow("UPDATE User SET password = ? WHERE name = ?", newpass, name)
+	rows, err := db.Query("SELECT name FROM User")
+
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+
+	for rows.Next() {
+
+		rows.Scan(&user.Name)
+
+		user_list = append(user_list, user.Name)
+	}
+
+	return user_list
 }

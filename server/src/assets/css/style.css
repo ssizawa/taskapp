@@ -46,14 +46,14 @@ button{
     color: white;
     font-size: 30px;
 }
-
-/*new-button*/
 #button-box{
     display: block;
     text-align: right;
     margin-top: 2%;
     margin-right: 5%;
 }
+
+/*new-button*/
 #new-button{
     height: 55px;
     width: 125px;
@@ -69,7 +69,12 @@ button{
     position: relative;
     color: white;
     font-size: 24px;
-    bottom: 4px;
+    bottom: 3px;
+}
+
+/*modal*/
+.required{
+    color: #FF4F50;
 }
 
 /*container*/
@@ -214,3 +219,6 @@ footer p{
         border-radius: 30px;
     }
 }
+/* @media screen and (max-width: 800px){
+    
+} */
