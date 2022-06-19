@@ -21,7 +21,7 @@ func Opendb() {
 	db = db_name
 }
 
-func VerifybyName(name string, password string) bool {
+func Verify(name string, password string) bool {
 
 	var user structure.User
 
@@ -35,4 +35,12 @@ func VerifybyName(name string, password string) bool {
 	}
 
 	return true
+}
+
+func ChangePass(name string, newpass string) {
+
+	Opendb()
+	defer db.Close()
+
+	_ = db.QueryRow("UPDATE User SET password = ? WHERE name = ?", newpass, name)
 }
