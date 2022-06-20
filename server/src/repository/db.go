@@ -38,7 +38,25 @@ func VerifybyName(name string, password string) bool {
 	return true
 }
 
+func Verify(name string, password string) bool {
+	var user structure.User
+	Opendb()
+	defer db.Close()
+	_ = db.QueryRow("SELECT name FROM User WHERE name = ? AND password = ?", name, password).Scan(&user.Name)
+	if user.Name == "" {
+		return false
+	}
+	return true
+}
+
+func ChangePass(name string, newpass string) {
+	Opendb()
+	defer db.Close()
+	_ = db.QueryRow("UPDATE User SET password = ? WHERE name = ?", newpass, name)
+}
+
 func GetUserList() []string {
+
 	var user_list []string
 	var user structure.User
 
@@ -59,4 +77,18 @@ func GetUserList() []string {
 	}
 
 	return user_list
+}
+
+func CreateTask(task_name string, description string, pic string, deadline string) {
+
+	Opendb()
+	defer db.Close()
+
+	insert, err := db.Prepare("INSERT INTO Task(task_name, description, pic, deadline, status) VALUES(?, ?, ?, ?, ?)")
+
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+
+	insert.Exec(task_name, description, pic, deadline, "todo")
 }

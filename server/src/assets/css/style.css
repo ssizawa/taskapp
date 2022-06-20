@@ -105,7 +105,7 @@ button{
     display: flex;
     margin: 15px auto;
 }
-#box1, #box2, #box3{
+#todo, #doing, #done{
     height: 550px;
     width: 350px;
     background-color: #D9D9D9;
