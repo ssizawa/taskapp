@@ -24,7 +24,7 @@ $(function(){
 
 //list
 $(function(){
-  $('#item1').on('click', function(){
+  $('#changepass').on('click', function(){
      location.href='/changepass';
   });
 });

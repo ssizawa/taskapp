@@ -47,35 +47,31 @@ button{
 }
 
 /* list */
-#box{
-    height: 400px;
-    width: 550px;
-    background-color: #D9D9D9;
-    border-radius: 30px;
-    padding-top: 25px;
-    margin: 50px auto;
-}
 #settings{
+    margin-top: 170px;
+}
+#settings-name{
     height: 45px;
     width: 350px;
     color: #868481;
     font-size: 36px;
-    margin: 0 auto;
+    margin:0 auto;
     text-align: center;
     text-decoration:underline solid #EDAA28 ;
     text-underline-offset: 0.2em;
 }
-#list{
-    border-radius: 15px;
-    margin: 30px auto;
-    width: 92%;
-    height: 100%;
-    font-size: 28px;
+#changepass{
+    text-align: center;
+    margin-top: 30px;
+    width: 300px;
+    height: 58px;
+    background: #EDAA28;
+    border-radius: 30px;
+    font-size: 24px;
+    border: none;
+    color: #FFFFFF;
 }
-
-#item1, #item2, #item3{
-    padding: 25px;
-    color: #868481;
+.botton{
     text-align: center;
 }
 
