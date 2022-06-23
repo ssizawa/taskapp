@@ -27,14 +27,14 @@ h1{
     background: #FFFCFC;
     border-radius: 10px;
     margin: auto;
-    font-size: 24px;
+    font-size: 18px;
     text-align: center;
 }
 #passlabel{
     display: block;
     margin-top: 25px;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 29px;
     text-align: center;
     color: #FFFDFD;

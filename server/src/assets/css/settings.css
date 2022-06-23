@@ -46,9 +46,9 @@ button{
     font-size: 30px;
 }
 
-/* list */
+/* settings */
 #settings{
-    margin-top: 170px;
+    margin-top: 200px;
 }
 #settings-name{
     height: 45px;
@@ -71,7 +71,7 @@ button{
     border: none;
     color: #FFFFFF;
 }
-.botton{
+.button{
     text-align: center;
 }
 
