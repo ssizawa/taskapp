@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../assets/icon/favicon.ico">
     <link rel="stylesheet" href="../assets/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -32,19 +33,19 @@
                         <h5 class="modal-title" id="taskModalLabel">Create a new task</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="create_a_task" method="POST" id="form_submit"></form>
+                    <form action="create_a_task" method="POST" id="task_content"></form>
                         <div class="modal-body">
                             <div class="mb-3">
                               <label for="task_name" class="col-form-label">name<span class="required">*</span></label>
-                              <input type="text" class="form-control" id="task_name" name="task_name" required>
+                              <input type="text" class="form-control" id="task_name" name="task_name" form="task_content" required>
                             </div>
                             <div class="mb-3 form-group">
                               <label for="task_description" class="col-form-label">description</label>
-                              <textarea class="form-control" id="task_description" name="task_description"></textarea>
+                              <textarea class="form-control" id="task_description" name="task_description" form="task_content"></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="task_pic" class="col-form-label">person in charge<span class="required">*</span></label>
-                                <select class="form-select" aria-label="select pic">
+                                <select class="form-select" aria-label="select pic" name="task_pic" form="task_content">
                                     <option selected>{{ .user_name }}</option>
                                     {{ range $candidate := .user_list }}
                                         <option value="{{ $candidate }}">{{ $candidate }}</option>
@@ -53,14 +54,14 @@
                             </div>
                             <div class="mb-3">
                                 <label for="task_deadline" class="col-form-label">deadline<span class="required">*</span></label>
-                                <input type="date" class="form-control" id="task_deadline" name="task_deadline" required>
+                                <input type="date" class="form-control" id="task_deadline" name="task_deadline" form="task_content" required>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary" id="create">Create</button>
-                        </div>
                     </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="create" form="task_content">Create</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -72,21 +73,36 @@
             </div>
             <div class="box">
                 <div id="todo">
-                    <div class="droppable">
-                        <div id="task-1">task1</div>
-                        <div id="task-2">task2</div>
+                    <div class="droppable todo" >
+                        {{ range $task_data := .todo_task_list }}
+                            <div class="task-todo" name="{{ index $task_data 0}}&{{ index $task_data 1}}">
+                                <p>name: {{ index $task_data 0}}</p>
+                                <p>description: {{ index $task_data 1}}</p>
+                                <p>deadline: {{ index $task_data 2}}</p>
+                            </div>
+                        {{ end }}
                     </div>
                 </div>
                 <div id="doing">
-                    <div class="droppable">
-                        <div id="task-3">task3</div>
-                        <div id="task-4">task4</div>
+                    <div class="droppable doing">
+                        {{ range $task_data := .doing_task_list }}
+                            <div class="task-doing" name="{{ index $task_data 0}}&{{ index $task_data 1}}">
+                                <p>name: {{ index $task_data 0}}</p>
+                                <p>description: {{ index $task_data 1}}</p>
+                                <p>deadline: {{ index $task_data 2}}</p>
+                            </div>
+                        {{ end }}
                     </div>
                 </div>
                 <div id="done">
-                    <div class="droppable">
-                        <div id="task-5">task5</div>
-                        <div id="task-6">task6</div>
+                    <div class="droppable done">
+                        {{ range $task_data := .done_task_list }}
+                            <div class="task-done" name="{{ index $task_data 0}}&{{ index $task_data 1}}">
+                                <p>name: {{ index $task_data 0}}</p>
+                                <p>description: {{ index $task_data 1}}</p>
+                                <p>deadline: {{ index $task_data 2}}</p>
+                            </div>
+                        {{ end }}
                     </div>
                 </div>
             </div>
@@ -97,7 +113,6 @@
             <li><div id="close-box"><button type="button" id="trigger-close"><i class="bi bi-arrow-left-circle" id="left"></i></button></div></li>
             <li><div id="side-item1">Home</div></li>
             <li><div id="side-item2">Settings</div></li>
-            <li><div id="side-item3">Contact Us</div></li>
         </ul>
     </aside>
     <footer>

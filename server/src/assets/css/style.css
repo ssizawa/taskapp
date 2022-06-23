@@ -113,10 +113,11 @@ button{
     margin-bottom: 10px;
     margin: 0 15px;
     padding-top: 5px;
+    overflow-y: scroll;
 }
 
 /*task*/
-div[id^="task-"]{
+div[class^="task-"]{
     border-radius: 15px;
     margin-bottom: 5px;
     padding: 5px;

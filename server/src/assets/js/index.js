@@ -2,13 +2,29 @@
 $(function(){
   $('#new-button').on('mouseover', function(){
     $(this).css({
-      'background-color': '#e7a41c' 
+      'background-color': '#f7d9ab',
+    });
+
+    $('#plus').css({
+      'color': '#EDAA28',
+    });
+
+    $('#new').css({
+      'color': '#EDAA28',
     });
   });
 
   $('#new-button').on('mouseout', function(){
     $(this).css({
-      'background-color': '#EDAA28' 
+      'background-color': '#EDAA28',
+    });
+
+    $('#plus').css({
+      'color': 'white',
+    });
+
+    $('#new').css({
+      'color': 'white',
     });
   });
 });
@@ -17,7 +33,7 @@ $(function(){
 $(function(){
   $('#trigger').on('mouseover', function(){
     $('#right').css({
-      'color': '#d19c32' 
+      'color': 'white' 
     });
   });
 
@@ -56,7 +72,7 @@ $(function(){
 $(function(){
   $('#trigger-close').on('mouseover', function(){
     $('#left').css({
-      'color': '#d19c32' 
+      'color': 'white' 
     });
   });
 
@@ -85,7 +101,74 @@ $(function(){
 $(function(){
   $('.droppable').sortable({
     connectWith: '.droppable',
-    items: '[id^=task-]'
+    items: 'div[class^="task-"]'
+  });
+});
+
+$(function(){
+  $('.todo').droppable({
+    drop: function(event, ui) {
+      var nameTag = ui.draggable.attr('name');
+      var dropped_taskName = nameTag.split('&')[0];
+      var dropped_taskDescription = nameTag.split('&')[1];
+
+      $.post('update_todo', 'taskName=' + dropped_taskName + '&taskDescription=' + dropped_taskDescription);
+      location.reload();
+    }
+  });
+});
+
+$(function(){
+  $('.doing').droppable({
+    drop: function(event, ui) {
+      var nameTag = ui.draggable.attr('name');
+      var dropped_taskName = nameTag.split('&')[0];
+      var dropped_taskDescription = nameTag.split('&')[1];
+
+      $.post('update_doing', 'taskName=' + dropped_taskName + '&taskDescription=' + dropped_taskDescription);
+      location.reload();
+    }
+  }); 
+});
+
+$(function(){
+  $('.done').droppable({
+    drop: function(event, ui) {
+      var nameTag = ui.draggable.attr('name');
+      var dropped_taskName = nameTag.split('&')[0];
+      var dropped_taskDescription = nameTag.split('&')[1];
+
+      $.post('update_done', 'taskName=' + dropped_taskName + '&taskDescription=' + dropped_taskDescription);
+      location.reload();
+    }
+  }); 
+});
+
+//task
+$(function(){
+  $('.task-done').on('click', function(){
+    var nameTag = $(this).attr('name');
+    var taskName = nameTag.split('&')[0];
+    var taskDescription = nameTag.split('&')[1];
+
+    if(confirm('Do you want delete "' + taskName + '"?')){
+      $.post('delete_task', 'taskName=' + taskName + '&taskDescription=' + taskDescription);
+      location.reload();
+    }
+  });
+});
+
+$(function(){
+  $('div[class^="task-"]').on('mouseover', function(){
+    $(this).css({
+      'background-color': '#ff7171'
+    });
+  });
+
+  $('div[class^="task-"]').on('mouseout', function(){
+    $(this).css({
+      'background-color': '#FF4F50'
+    });
   });
 });
 
@@ -93,5 +176,5 @@ $(function(){
 $(function(){
   $('#taskModal').on('hidden.bs.modal', function(){
     $(this).find('form').trigger('reset');
-  })
+  });
 });
