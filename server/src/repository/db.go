@@ -2,7 +2,6 @@ package repository
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
 
 	_ "github.com/go-sql-driver/mysql"
@@ -77,8 +76,6 @@ func GetUserList() []string {
 	for rows.Next() {
 
 		rows.Scan(&user.Name)
-
-		fmt.Println(user_list)
 
 		user_list = append(user_list, user.Name)
 	}
