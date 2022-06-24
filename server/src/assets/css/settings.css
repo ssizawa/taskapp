@@ -100,24 +100,42 @@ button{
     color: #EDAA28;
     font-size: 38px;
 }
-#close-box, #side-item1, #side-item2, #side-item3{
+#close-box, #side-item1, #side-item2{
     height: 58px;
 }
-#side-item1, #side-item2, #side-item3{
-    padding-top: 10px;
+#side-item1, #side-item2{
+    padding-top: 8px;
     text-align: center;
 }
-#side-item1, #side-item2, #side-item3{
+#side-item1, #side-item2{
     font-size: 24px;
     color: white;
 }
-#side-item1, #side-item3{
+#side-item1{
     background-color: #FFC75B;
+    padding-right: 22px;
+    transition: .3s;
 }
 #side-item2{
     background-color: #EDAA28;
+    transition: .3s;
+}
+#side-item1:hover, #side-item2:hover{
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+#home{
+    color: white;
+    font-size: 30px;
+    margin: 5px;
+}
+#setting{
+    color: white;
+    font-size: 26px;
+    margin: 5px;
 }
 
+/*footer*/
 footer{
     position: fixed;
     bottom: 0;

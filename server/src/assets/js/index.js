@@ -33,7 +33,7 @@ $(function(){
 $(function(){
   $('#trigger').on('mouseover', function(){
     $('#right').css({
-      'color': 'white' 
+      'color': '#f7d9ab' 
     });
   });
 
@@ -72,7 +72,7 @@ $(function(){
 $(function(){
   $('#trigger-close').on('mouseover', function(){
     $('#left').css({
-      'color': 'white' 
+      'color': '#f7d9ab' 
     });
   });
 
@@ -113,7 +113,7 @@ $(function(){
       var dropped_taskDescription = nameTag.split('&')[1];
 
       $.post('update_todo', 'taskName=' + dropped_taskName + '&taskDescription=' + dropped_taskDescription);
-      location.reload();
+      location.reload(false);
     }
   });
 });
@@ -126,7 +126,7 @@ $(function(){
       var dropped_taskDescription = nameTag.split('&')[1];
 
       $.post('update_doing', 'taskName=' + dropped_taskName + '&taskDescription=' + dropped_taskDescription);
-      location.reload();
+      location.reload(false);
     }
   }); 
 });
@@ -139,7 +139,7 @@ $(function(){
       var dropped_taskDescription = nameTag.split('&')[1];
 
       $.post('update_done', 'taskName=' + dropped_taskName + '&taskDescription=' + dropped_taskDescription);
-      location.reload();
+      location.reload(false);
     }
   }); 
 });
@@ -168,6 +168,18 @@ $(function(){
   $('div[class^="task-"]').on('mouseout', function(){
     $(this).css({
       'background-color': '#FF4F50'
+    });
+  });
+
+  $('div[class^="task-"]').on('mousedown', function(){
+    $(this).css({
+      'border': 'solid 6px orange'
+    });
+  });
+
+  $('div[class^="task-"]').on('mouseup', function(){
+    $(this).css({
+      'border-style': 'none'
     });
   });
 });

@@ -92,7 +92,7 @@ h1{
     font-size: 24px;
     text-align: center;
 }
-#login{
+#change{
     text-align: center;
     margin-top: 30px;
     width: 115px;
@@ -102,6 +102,11 @@ h1{
     font-size: 24px;
     border: none;
     color: #FFFFFF;
+}
+#change:hover{
+    box-shadow: 0 4px 7px 0 rgba(104, 70, 17, 0.5);
+    transform: translateY(-3px);
+    cursor: pointer;
 }
 .botton{
     text-align: center;
@@ -131,22 +136,39 @@ h1{
     color: #EDAA28;
     font-size: 38px;
 }
-#close-box, #side-item1, #side-item2, #side-item3{
+#close-box, #side-item1, #side-item2{
     height: 58px;
 }
-#side-item1, #side-item2, #side-item3{
-    padding-top: 10px;
+#side-item1, #side-item2{
+    padding-top: 8px;
     text-align: center;
 }
-#side-item1, #side-item2, #side-item3{
+#side-item1, #side-item2{
     font-size: 24px;
     color: white;
 }
-#side-item1, #side-item3{
+#side-item1{
     background-color: #FFC75B;
+    padding-right: 22px;
+    transition: .3s;
 }
 #side-item2{
     background-color: #EDAA28;
+    transition: .3s;
+}
+#side-item1:hover, #side-item2:hover{
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+#home{
+    color: white;
+    font-size: 30px;
+    margin: 5px;
+}
+#setting{
+    color: white;
+    font-size: 26px;
+    margin: 5px;
 }
 
 /*footer*/
