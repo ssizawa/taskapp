@@ -19,7 +19,7 @@
             <button type="button" id="trigger"><i class="bi bi-arrow-right-circle" id="right"></i></button>
         </div>
         <div id="user-box">
-            <i class="bi bi-person-fill" id="user"></i><span>{{.user_name}}</span>
+            <i class="bi bi-person-fill" id="user"></i><span>{{ .user_name }}</span>
         </div>
     </header>
     <main>
@@ -46,9 +46,12 @@
                             <div class="mb-3">
                                 <label for="task_pic" class="col-form-label">person in charge<span class="required">*</span></label>
                                 <select class="form-select" aria-label="select pic" name="task_pic" form="task_content">
-                                    <option selected>{{ .user_name }}</option>
                                     {{ range $candidate := .user_list }}
-                                        <option value="{{ $candidate }}">{{ $candidate }}</option>
+                                        {{ if eq {{ $candidate }} {{ .user_name }} }}
+                                            <option value="{{ $candidate }}" selected>{{ $candidate }}</option>
+                                        {{ else }}
+                                            <option value="{{ $candidate }}">{{ $candidate }}</option>
+                                        {{ end }}
                                     {{ end }}
                                 </select>
                             </div>
