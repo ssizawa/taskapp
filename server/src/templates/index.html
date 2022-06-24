@@ -47,7 +47,7 @@
                                 <label for="task_pic" class="col-form-label">person in charge<span class="required">*</span></label>
                                 <select class="form-select" aria-label="select pic" name="task_pic" form="task_content">
                                     {{ range $candidate := .user_list }}
-                                        {{ if eq {{ $candidate }} {{ .user_name }} }}
+                                        {{ if eq $candidate .user_name }}
                                             <option value="{{ $candidate }}" selected>{{ $candidate }}</option>
                                         {{ else }}
                                             <option value="{{ $candidate }}">{{ $candidate }}</option>
