@@ -54,12 +54,15 @@ func Router(router *gin.Engine) {
 
 	router.GET("taskapp/settings", func(c *gin.Context) {
 
-		c.HTML(http.StatusOK, "settings.html", gin.H{})
+		c.HTML(http.StatusOK, "settings.html", gin.H{
+			"user_name": user_name,
+		})
 	})
 	router.GET("/changepass", func(c *gin.Context) {
 
 		c.HTML(http.StatusOK, "changepass.html", gin.H{
-			"judge": true,
+			"user_name": user_name,
+			"judge":     true,
 		})
 	})
 
@@ -78,6 +81,7 @@ func Router(router *gin.Engine) {
 		}
 
 		c.HTML(http.StatusOK, "changepass.html", gin.H{
+			"user_name":             user_name,
 			"oldpass_judge":         oldpass_judge,
 			"changepass_successful": changepass_successful,
 		})
