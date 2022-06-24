@@ -6,14 +6,37 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/gin-contrib/sessions"
+	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
 
 	"github.com/ssizawa/taskapp/server/src/repository"
+	"github.com/ssizawa/taskapp/server/src/structure"
 )
+
+var session_user structure.Session
+var login_user structure.User
+
+func checkSession(c *gin.Context) {
+
+	session := sessions.Default(c)
+	session_user.Name = session.Get("user_name")
+
+	if session_user.Name == nil {
+		c.Redirect(302, "/login")
+		c.Abort()
+	} else {
+		c.Set("user_name", session_user.Name)
+		login_user.Name = session_user.Name.(string)
+		c.Next()
+	}
+}
 
 func Router(router *gin.Engine) {
 
-	var user_name string
+	//session
+	store := cookie.NewStore([]byte("secret"))
+	router.Use(sessions.Sessions("mysession", store))
 
 	router.GET("/", func(c *gin.Context) {
 
@@ -24,10 +47,14 @@ func Router(router *gin.Engine) {
 
 	router.POST("/login", func(c *gin.Context) {
 
-		user_name = c.PostForm("name")
+		user_name := c.PostForm("name")
 		password := c.PostForm("password")
 
 		if repository.VerifybyName(user_name, password) {
+			session := sessions.Default(c)
+			session.Set("user_name", user_name)
+			session.Save()
+
 			c.Redirect(302, "/taskapp")
 		} else {
 			c.HTML(http.StatusOK, "login.html", gin.H{
@@ -40,11 +67,12 @@ func Router(router *gin.Engine) {
 
 		var user_list []string
 		user_list = repository.GetUserList()
+		checkSession(c)
 
-		todo_task_list, doing_task_list, done_task_list := repository.GetTasks(user_name)
+		todo_task_list, doing_task_list, done_task_list := repository.GetTasks(login_user.Name)
 
 		c.HTML(200, "index.html", gin.H{
-			"user_name":       user_name,
+			"user_name":       login_user.Name,
 			"user_list":       user_list,
 			"todo_task_list":  todo_task_list,
 			"doing_task_list": doing_task_list,
@@ -55,13 +83,13 @@ func Router(router *gin.Engine) {
 	router.GET("taskapp/settings", func(c *gin.Context) {
 
 		c.HTML(http.StatusOK, "settings.html", gin.H{
-			"user_name": user_name,
+			"user_name": login_user.Name,
 		})
 	})
 	router.GET("/changepass", func(c *gin.Context) {
 
 		c.HTML(http.StatusOK, "changepass.html", gin.H{
-			"user_name": user_name,
+			"user_name": login_user.Name,
 			"judge":     true,
 		})
 	})
@@ -73,15 +101,15 @@ func Router(router *gin.Engine) {
 		oldpass_judge := false
 		changepass_successful := false
 
-		if repository.Verify(user_name, oldpass) {
-			repository.ChangePass(user_name, newpass)
+		if repository.Verify(login_user.Name, oldpass) {
+			repository.ChangePass(login_user.Name, newpass)
 			changepass_successful = true
 		} else {
 			oldpass_judge = true
 		}
 
 		c.HTML(http.StatusOK, "changepass.html", gin.H{
-			"user_name":             user_name,
+			"user_name":             login_user.Name,
 			"oldpass_judge":         oldpass_judge,
 			"changepass_successful": changepass_successful,
 		})
@@ -104,9 +132,9 @@ func Router(router *gin.Engine) {
 		taskName := c.PostForm("taskName")
 		taskDescription := c.PostForm("taskDescription")
 
-		repository.UpdateTaskStatus(user_name, taskName, taskDescription, "todo")
+		repository.UpdateTaskStatus(login_user.Name, taskName, taskDescription, "todo")
 
-		fmt.Println("\n[" + user_name + "]")
+		fmt.Println("\n[" + login_user.Name + "]")
 		fmt.Println("Status of \"" + taskName + "-" + taskDescription + "\" is changed into \"todo\"\n")
 	})
 
@@ -115,9 +143,9 @@ func Router(router *gin.Engine) {
 		taskName := c.PostForm("taskName")
 		taskDescription := c.PostForm("taskDescription")
 
-		repository.UpdateTaskStatus(user_name, taskName, taskDescription, "doing")
+		repository.UpdateTaskStatus(login_user.Name, taskName, taskDescription, "doing")
 
-		fmt.Println("\n[" + user_name + "]")
+		fmt.Println("\n[" + login_user.Name + "]")
 		fmt.Println("Status of \"" + taskName + "-" + taskDescription + "\" is changed into \"doing\"\n")
 	})
 
@@ -126,9 +154,9 @@ func Router(router *gin.Engine) {
 		taskName := c.PostForm("taskName")
 		taskDescription := c.PostForm("taskDescription")
 
-		repository.UpdateTaskStatus(user_name, taskName, taskDescription, "done")
+		repository.UpdateTaskStatus(login_user.Name, taskName, taskDescription, "done")
 
-		fmt.Println("\n[" + user_name + "]")
+		fmt.Println("\n[" + login_user.Name + "]")
 		fmt.Println("Status of \"" + taskName + "-" + taskDescription + "\" is changed into \"done\"\n")
 	})
 
@@ -139,6 +167,6 @@ func Router(router *gin.Engine) {
 
 		fmt.Println(taskDescription)
 
-		repository.DeleteTask(user_name, taskName, taskDescription)
+		repository.DeleteTask(login_user.Name, taskName, taskDescription)
 	})
 }
