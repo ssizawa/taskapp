@@ -113,7 +113,8 @@ $(function(){
       var dropped_taskDescription = nameTag.split('&')[1];
 
       $.post('update_todo', 'taskName=' + dropped_taskName + '&taskDescription=' + dropped_taskDescription);
-      location.reload(true); 
+      location.reload();
+      location.reload();  
     }
   });
 });
@@ -126,7 +127,8 @@ $(function(){
       var dropped_taskDescription = nameTag.split('&')[1];
 
       $.post('update_doing', 'taskName=' + dropped_taskName + '&taskDescription=' + dropped_taskDescription);
-      location.reload(true);
+      location.reload();
+      location.reload(); 
     }
   }); 
 });
@@ -139,7 +141,8 @@ $(function(){
       var dropped_taskDescription = nameTag.split('&')[1];
 
       $.post('update_done', 'taskName=' + dropped_taskName + '&taskDescription=' + dropped_taskDescription);
-      location.reload(true);
+      location.reload();
+      location.reload(); 
     }
   }); 
 });
@@ -154,7 +157,8 @@ $(function(){
     if(confirm('Do you want delete "' + taskName + '"?')){
       $.post('delete_task', 'taskName=' + taskName + '&taskDescription=' + taskDescription);
     }
-    location.reload(ture);
+    location.reload();
+    location.reload(); 
   });
 });
 
