@@ -115,7 +115,7 @@ $(function(){
       $.post('update_todo', 'taskName=' + dropped_taskName + '&taskDescription=' + dropped_taskDescription);
       setTimeout(function(){
         location.reload();
-      }, 100); 
+      }, 400); 
     }
   });
 });
@@ -130,7 +130,7 @@ $(function(){
       $.post('update_doing', 'taskName=' + dropped_taskName + '&taskDescription=' + dropped_taskDescription);
       setTimeout(function(){
         location.reload();
-      }, 100); 
+      }, 400); 
     }
   }); 
 });
@@ -145,7 +145,7 @@ $(function(){
       $.post('update_done', 'taskName=' + dropped_taskName + '&taskDescription=' + dropped_taskDescription);
       setTimeout(function(){
         location.reload();
-      }, 100); 
+      }, 400); 
     }
   }); 
 });
@@ -161,7 +161,7 @@ $(function(){
       $.post('delete_task', 'taskName=' + taskName + '&taskDescription=' + taskDescription);
       setTimeout(function(){
         location.reload();
-      }, 100); 
+      }, 400); 
     }
   });
 });
